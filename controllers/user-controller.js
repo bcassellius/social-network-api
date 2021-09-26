@@ -13,7 +13,7 @@ const userController = {
         .select('-__v')
         .then(dbThoughtData => res.json(dbThoughtData))
         .catch(err => {
-            console.cog(err);
+            console.log(err);
             res.status(400).json(err);
         });
     },
