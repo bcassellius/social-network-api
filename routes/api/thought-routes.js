@@ -12,14 +12,14 @@ const {
 
 //  Set up GET and Post /api/thoughts
 router
-    .route('/')
+    .route('/api/thoughts/')
     .get(getAllThought)
     .post(addThought)
     
 
 //  Set up GET 1, PUT, DELETE /api/thoughts/:thoughtId
 router
-    .route('/:thoughtId')
+    .route('/api/thoughts/:thoughtId')
     .get(getThoughtById)
     .put(updateThoughtById)
     .delete(deleteThoughtById)
@@ -27,7 +27,7 @@ router
     
 //  Set up DELETE /api/thoughts/:thoughtId/:reactionId
 router
-    .route('/:thoughtId/:reactionId')
+    .route('api/thoughts/:thoughtId/:reactionId')
     .delete(removeReaction);
 
 module.exports = router;
