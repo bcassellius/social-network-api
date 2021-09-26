@@ -6,11 +6,11 @@ const thoughtController = {
     getAllThought(req, res) {
         Thought.find({})
         .populate({
-            path: 'thoughts',
+            path: 'user',
             select: '-__v'
         })
         .select(-'__v')
-        .sort({_id: -1})
+        // .sort({_id: -1})
         .then(dbThoughtData => res.json(dbThoughtData))
         .catch(err => {
             console.log(err);
@@ -22,7 +22,7 @@ const thoughtController = {
     getThoughtById({ params }, res) {
         Thought.findOne({_id: params.id })
         .populate({
-            path: 'thoughts',
+            path: 'user',
             select: '-__v'
         })
         .select('-__v')
@@ -40,13 +40,7 @@ const thoughtController = {
         });
     },
     
-    // createThought({ body}, res) {
-    //     Thought.create(body)
-    //     .then(dbThoughtData => res.json(dbThoughtData))
-    //     .catch(err => res.status(400).json(err));
-    // },
-
-    // post new thought (push created thought's _id to the associated user's `thoughts` array field)
+      // post new thought (push created thought's _id to the associated user's `thoughts` array field)
                 // {
                 //     "thoughtText": "Here's an interesting idea...",
                 //     "username": "henry53",
