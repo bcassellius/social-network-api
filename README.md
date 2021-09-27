@@ -15,7 +15,9 @@ This is the backend api of a social network.
 
 <a name='installation'></a>
 ## Installation
-Express.js and Mongoose are needed to run the app as well as insomnia core to test the app as it does not currently have a front end.
+This app uses MongoDB for the database. Express.js and Mongoose are needed to run the app as well as insomnia core to test the app as it does not currently have a front end.
+![image](https://user-images.githubusercontent.com/83994997/134847270-c7325d50-72fc-4e1f-84fc-b8b0eede3d52.png)
+
 
 <a name='usage'></a>
 ## Usage
