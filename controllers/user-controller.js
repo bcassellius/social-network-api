@@ -20,7 +20,7 @@ const userController = {
 
     // get 1 user by _id and populated thought and friend data
     getUserById ({ params }, res) {
-        User.findOne({_id: params.id})
+        User.findOne({_id: params.userId })
         .populate({
             path: 'thoughts',
             select: '-__v'
@@ -61,7 +61,7 @@ const userController = {
 
     // put update user by _id
     updateUser({ params }, res) {
-        User.findOneAndUpdate({_id: params.id }, body, {new: true})
+        User.findOneAndUpdate({_id: params.userId }, body, {new: true})
         .then(dbThoughtData => {
             if (!dbThoughtData) {
                 res.status(404).json({message: "No user found with that id."})
@@ -77,7 +77,7 @@ const userController = {
 
     // delete user by _id
     removeUser({ params }, res) {
-        User.findOneAndDelete({_id: params.id})
+        User.findOneAndDelete({_id: params.userId})
         .then(dbThoughtData => {
             if (!dbThoughtData) {
                 res.status(404).json({message: "No user found with this id!"})
@@ -96,6 +96,7 @@ const userController = {
 
     // post to add new friend to a user's friend list
     createFriend ({params, body}, res) {
+        console.log(body);
         User.findByIdAndUpdate(
             {_id: params.userId},
             {$push: { friends: body } },
@@ -110,6 +111,7 @@ const userController = {
         })
         .catch(err => res.json(err));
     },
+
     // delete to remove a friend from a user's friend list
     removeFriend({params}, res) {
         User.findOneAndUpdate(

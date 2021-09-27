@@ -6,7 +6,7 @@ const thoughtController = {
     getAllThought(req, res) {
         Thought.find({})
         .populate({
-            path: 'user',
+            path: 'username',
             select: '-__v'
         })
         .select('-__v')
@@ -67,7 +67,7 @@ const thoughtController = {
     },
 
     // put update thought by _id
-    updateThoughtById({ params }, res) {
+    updateThoughtById({ params, body }, res) {
         Thought.findOneAndUpdate({_id: params.id }, body, {new: true})
         .then(dbThoughtData => {
             if (!dbThoughtData) {

@@ -42,12 +42,7 @@ const ThoughtSchema = new Schema(
             type: Date,
             default: Date.now
         },
-        reactions: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'reaction'
-            }
-        ],
+        reactions: [ReactionSchema]
     },
     {
         toJSON: {
@@ -60,7 +55,7 @@ const ThoughtSchema = new Schema(
 
 // get total count of friends 
 ThoughtSchema.virtual('reactionCount').get(function() {
-    return this.reaction.length;
+    return this.reactions.reduce((total, comment) => total + thought.reactions.length + 1, 0);;
 });
 
 // create the Thought model using the ThoughtSchema
