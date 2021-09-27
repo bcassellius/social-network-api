@@ -27,7 +27,7 @@ This application is covered by MIT.
 
 <a name='contributing'></a>
 ## Contributing
-App created by Bri Cassellius.
+App created by Bri Cassellius as part of the coursework for Coding Bootcamp.
 
 <a name='github'></a>
 ## Github
