@@ -95,11 +95,10 @@ const userController = {
     // /api/users/:userId/friends/:friendId
 
     // post to add new friend to a user's friend list
-    createFriend ({params, body}, res) {
-        console.log(body);
-        User.findByIdAndUpdate(
-            {_id: params.userId},
-            {$push: { friends: body } },
+    createFriend ({params}, res) {
+        User.findOneAndUpdate(
+            {_id: params.id},
+            {$push: { friends: params.friendId } },
             { new: true, runValidators: true }
         )
         .then(dbThoughtData => {
