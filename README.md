@@ -31,7 +31,7 @@ App created by Bri Cassellius.
 
 <a name='github'></a>
 ## Github
-https://github.com/bcassellius
+https://github.com/bcassellius/social-network-api.git
 
 <a name='tests'></a>
 ## Walkthrough
