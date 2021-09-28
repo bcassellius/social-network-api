@@ -37,4 +37,4 @@ https://github.com/bcassellius/social-network-api.git
 
 <a name='tests'></a>
 ## Walkthrough
-https://www.awesomescreenshot.com/video/5386220?key=37630001dea01607ba29c271b5e23c7e
+https://www.awesomescreenshot.com/video/5402193?key=6e5075503e46dcf0932ee0a352ae271c
