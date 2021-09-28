@@ -60,7 +60,7 @@ const userController = {
     },
 
     // put update user by _id
-    updateUser({ params }, res) {
+    updateUser({ params, body }, res) {
         User.findOneAndUpdate({_id: params.userId }, body, {new: true})
         .then(dbThoughtData => {
             if (!dbThoughtData) {
@@ -97,7 +97,7 @@ const userController = {
     // post to add new friend to a user's friend list
     createFriend ({params}, res) {
         User.findOneAndUpdate(
-            {_id: params.id},
+            {_id: params.userId},
             {$push: { friends: params.friendId } },
             { new: true, runValidators: true }
         )
@@ -115,7 +115,7 @@ const userController = {
     removeFriend({params}, res) {
         User.findOneAndUpdate(
             {_id: params.userId },
-            { $pull: { friends: {friendId: params.friendId}}},
+            { $pull: { friends: params.friendId}},
             {new: true}
         )
         .then(dbThoughtData => res.json(dbThoughtData))
@@ -123,5 +123,4 @@ const userController = {
     }
 }
 
-// Make sure path:'thoughts'
 module.exports = userController;
